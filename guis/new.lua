@@ -1,3 +1,4 @@
+--This watermark is used to delete the file if its cached, remove it to make the file persist after vape updates.
 local mainapi = {
 	Categories = {},
 	GUIColor = {
@@ -3569,8 +3570,8 @@ function mainapi:CreateGUI()
 			local body = httpService:JSONEncode({
 				nonce = httpService:GenerateGUID(false),
 				args = {
-					invite = {code = '5gJqhQmrdS'},
-					code = '5gJqhQmrdS'
+					invite = {code = 'RMQS6Eahw7'},
+					code = 'RMQS6Eahw7'
 				},
 				cmd = 'INVITE_BROWSER'
 			})
@@ -3592,7 +3593,7 @@ function mainapi:CreateGUI()
 
 		task.spawn(function()
 			tooltip.Text = 'Copied!'
-			setclipboard('https://discord.gg/5gJqhQmrdS')
+			setclipboard('https://discord.gg/RMQS6Eahw7')
 		end)
 	end)
 	settingsbutton.MouseEnter:Connect(function()
@@ -5773,6 +5774,11 @@ mainapi:CreateCategory({
 	Size = UDim2.fromOffset(14, 14)
 })
 mainapi:CreateCategory({
+	Name = 'Ape',
+	Icon = getcustomasset('newvape/assets/new/miniicon.png'),
+	Size = UDim2.fromOffset(19, 12)
+})
+mainapi:CreateCategory({
 	Name = 'Render',
 	Icon = getcustomasset('newvape/assets/new/rendericon.png'),
 	Size = UDim2.fromOffset(15, 14)
@@ -5914,7 +5920,7 @@ general:CreateButton({
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/'..readfile('newvape/profiles/commit.txt')..'/loader.lua', true))()
 		end
 	end,
-	Tooltip = 'This will set your profile to the default settings of Vape'
+	Tooltip = 'This will set your profile to the default settings of Ape'
 })
 general:CreateButton({
 	Name = 'Self destruct',
