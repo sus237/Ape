@@ -8605,7 +8605,7 @@ end)
 
 run(function()
     local Antihit = {Enabled = false}
-    local Range, TimeUp, Down
+    local Range, TimeUp, Down = 16, 0.5, 0.14
 
     Antihit = vape.Categories.Ape:CreateModule({
         Name = "Antihit",
@@ -8634,7 +8634,7 @@ run(function()
                             end
 
                             if foundEnemy then
-                                root.CFrame = CFrame.new(orgPos + Vector3.new(0, -107, 0))
+                                root.CFrame = CFrame.new(orgPos + Vector3.new(0, -230, 0))
                                 task.wait(TimeUp.Value)
                                 if Antihit.Enabled and lplr.Character and lplr.Character:FindFirstChild("HumanoidRootPart") then
                                     lplr.Character.HumanoidRootPart.CFrame = CFrame.new(orgPos)
