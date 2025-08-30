@@ -7013,7 +7013,7 @@ mainapi:Clean(inputService.InputEnded:Connect(function(inputObj)
 	end
 end))
 
-notif('Ape', 'Loaded ape v4!', 10, 'info')
-notif('Ape', 'ix.vi is the original creator of APE', 3.5, 'alert')
+self:CreateNotification('Ape', 'Loaded ape v4!', 10, 'info')
+self:CreateNotification('Ape', 'ix.vi is the original creator of APE', 3.5, 'alert')
 																																																									
 return mainapi
