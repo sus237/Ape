@@ -8782,22 +8782,22 @@ end)
 
 
 run(function()
-	local KrystalXploit = {Enabled = false}
+    local KrystalXploit = {Enabled = false}
 
     KrystalXploit = vape.Categories.Ape:CreateModule({
         Name = "KrystalExploit",
         Function = function(callback)
             if callback then
-                spawn(function()
-                    while KrystalXploit.Enabled do
-                        MomentumUpdate:FireServer({
-                            momentumValue = 9e9
-                        })
-                        task.wait(0.01)
-                    end
+                task.spawn(function()
+                    repeat
+                        MomentumUpdate:FireServer({momentumValue = 9e9})
+                        task.wait()
+                    until not KrystalXploit.Enabled
                 end)
             end
         end,
-        Tooltip = "Makes you have more speed with krystal"
+        Tooltip = "Gives massive speed with Krystal"
     })
 end)
+
+
