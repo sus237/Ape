@@ -8800,4 +8800,22 @@ run(function()
     })
 end)
 
-
+run(function()
+	local SigridExploit = {Enabled = false}
+																													
+    SigridExploit = vape.Categories.Ape:CreateModule({
+        Name = "ElkExploit",
+        Function = function(callback)
+            if callback then
+                repeat 
+                    for _ = 1,5 do
+                        bedwars.AbilityController:useAbility("elk_kit_mounted")
+                        bedwars.AbilityController:useAbility("elk_kit_dismounted")
+                    end
+                    task.wait(0.5)
+                until not SigridExploit.Enabled
+            end
+        end,
+		Tooltip = "Gives infinite stamina to elk"
+    }) 
+end)
