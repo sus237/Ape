@@ -8796,7 +8796,7 @@ run(function()
                 end)
             end
         end,
-        Tooltip = "Gives massive speed with Krystal"
+        Tooltip = "Lets you go more speed with krystal"
     })
 end)
 
