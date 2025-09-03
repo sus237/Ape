@@ -52,6 +52,7 @@ local whitelist = vape.Libraries.whitelist
 local prediction = vape.Libraries.prediction
 local getfontsize = vape.Libraries.getfontsize
 local getcustomasset = vape.Libraries.getcustomasset
+local cam = gameCamera
 
 local store = {
 	attackReach = 0,
@@ -8780,7 +8781,6 @@ run(function()
     })
 end)
 
-
 run(function()
     local KrystalXploit = {Enabled = false}
 
@@ -8800,4 +8800,40 @@ run(function()
     })
 end)
 
-
+run(function()
+    local MotionBlur = {Enabled = false}
+    local blur = Lighting:FindFirstChild("MotionBlur") or Instance.new("BlurEffect")
+    blur.Name = "MotionBlur"
+    blur.Size = 0
+    blur.Parent = Lighting
+    local prevCFrame = cam.CFrame
+    local conn
+		
+    MotionBlur = vape.Categories.Ape:CreateModule({
+        Name = "MotionBlur",
+        Function = function(callback)
+            MotionBlur.Enabled = callback
+            if callback then
+                conn = runService.RenderStepped:Connect(function(dt)
+                    dt = dt > 0 and dt or 1/60
+                    local curCFrame = cam.CFrame
+                    local linear = (curCFrame.Position - prevCFrame.Position).Magnitude / dt
+                    local dot = math.clamp(prevCFrame.LookVector:Dot(curCFrame.LookVector), -1, 1)
+                    local angular = math.acos(dot) / dt
+                    local target = 0
+                    if lplr.CameraMode == Enum.CameraMode.LockFirstPerson then
+                        target = math.clamp(linear * 0.06 + angular * 1.6, 0, 24)
+                    else
+                        target = math.clamp(linear * 0.08, 0, 24)
+                    end
+                    blur.Size = blur.Size + (target - blur.Size) * math.clamp(12 * dt, 0, 1)
+                    prevCFrame = curCFrame
+                end)
+            else
+                if conn then conn:Disconnect() conn = nil end
+                blur.Size = 0
+            end
+        end,
+        Tooltip = "Gives you motion blur when you move your camera"
+    })
+end)
