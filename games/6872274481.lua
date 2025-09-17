@@ -2298,7 +2298,7 @@ run(function()
 									local attackData = {
 										weapon = sword.tool,
 										chargedAttack = {chargeRatio = math.random(0, 100) / 100},
-										lastSwingServerTimeDelta = math.random(40, 60) / 100,
+										lastSwingServerTimeDelta = math.random(0, 0) / 100,
 										entityInstance = v.Character,
 										validate = {
 											raycast = {
@@ -2338,13 +2338,13 @@ run(function()
 
 					if Face.Enabled and attacked[1] then
 						local target = attacked[1].Entity.RootPart
-						local targetPos = target.Position + target.Velocity * 0.1
+						local targetPos = target.Position + target.Velocity * 0.01
 						local vec = targetPos * Vector3.new(1, 0, 1)
 						entitylib.character.RootPart.CFrame = CFrame.lookAt(entitylib.character.RootPart.Position, Vector3.new(vec.X, entitylib.character.RootPart.Position.Y + 0.001, vec.Z))
 					end
 
-					local waitTime = 1 / (UpdateRate.Value + (#attacked * 2))
-					task.wait(math.max(waitTime, 0.005))
+					local waitTime = 0.001 / (UpdateRate.Value + (#attacked * 5))
+					task.wait(math.max(waitTime, 0.001))
 				until not Killaura.Enabled
 			else
 				store.KillauraTarget = nil
