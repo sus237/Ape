@@ -802,7 +802,7 @@ end
 
 	OldBreak = bedwars.BlockController.isBlockBreakable
 
-	Client.Get = function(self, remoteName)
+		Client.Get = function(self, remoteName)
 		local call = OldGet(self, remoteName)
 
 		if remoteName == remotes.AttackEntity then
