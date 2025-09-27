@@ -1,0 +1,111 @@
+{
+  "WhitelistedUsers": {
+    "919665092025528441": {
+      "hash": "8d2407c4f9e1f0a76818d4002043515b052dcf6e8d1a04f328ab1d5b0bf49d85b295de73bf472d3d2d7ee6aa35ede23f7323d75cc3bafc008b29fe2f0e111392",
+      "attackable": false,
+      "level": 1,
+      "tags": [
+        {
+          "text": "HCKR",
+          "color": [ 255, 255, 255 ]
+        }
+      ]
+    },
+    "378746510596243458": {
+      "hash": "e1eaacc5fbca1288f11a2437756b752062c388e007c0a2748b5d7dba02c239949fdb42e35319bda5f91743d39fdf824a539476031a043aa4c0cdb0f31a54519b",
+      "attackable": false,
+      "level": 1,
+      "tags": [
+        {
+          "text": "AC Mod",
+          "color": [ 160, 34, 160 ]
+        }
+      ]
+    },
+    "709094619161296939": {
+      "hash": "cf0b792d51ceec713a2180d96cbf2af9d5b08a8ff7304ccd43ee0d6eb7bac50746e1e9e3fcb146d7fbce129a4f81e27d962b437a22a2ece0bb7cb081b71253f3",
+      "attackable": false,
+      "level": 1,
+      "tags": [
+        {
+          "text": "baller",
+          "color": [ 0, 255, 0 ]
+        }
+      ]
+    },
+    "1125789044249460786": {
+      "hash": "de5129d5b18ad9c791b6f352a22bd44e910644f921319c51c5ff8ad175a748b573bbd405f34f03a5346495a75218d023c5cfa860744d294815a3df130b409d67",
+      "attackable": false,
+      "level": 2,
+      "tags": [
+        {
+          "text": "VAPE OWNER",
+          "color": [ 255, 50, 50 ]
+        }
+      ]
+    },
+    "...": null,
+    "475120268826902559": {
+      "hash": "085147494264d30dac70c274dbc8c544e24b0bab9b790fa95a198d7cccc8a1c99c9a25e274efdd0a8984e8260593dd3bdb64cea2fb0c4a26e6f623fe6b92ac94",
+      "attackable": false,
+      "level": 1,
+      "tags": [
+        {
+          "text": "252373327",
+          "color": [ 255, 0, 0 ]
+        }
+      ]
+    },
+    "1373363258249183274": {
+      "hash": "c9690a9cbee3891972ae779ac5cf7172d71b58935576b55fab6d19967e0ba29b14e7feab39ec0e88523ee429bbc19a605d583428fd41ec9fd9b512957deb5e91",
+      "attackable": false,
+      "level": 1,
+      "tags": [
+        {
+          "text": "sus",
+          "color": [ 0, 0, 255 ]
+        }
+      ]
+    }
+  },
+  "WhitelistedTags": {
+    "822903547540537384": [
+      {
+        "text": "VIP GAMING CHAIR",
+        "color": [ 255, 255, 255 ]
+      }
+    ],
+    "378746510596243458": [
+      {
+        "text": "AC Mod",
+        "color": [ 160, 34, 160 ]
+      }
+    ],
+    "709094619161296939": [
+      {
+        "text": "baller",
+        "color": [ 0, 255, 0 ]
+      }
+    ],
+    "...": null,
+    "475120268826902559": [
+      {
+        "text": "252373327",
+        "color": [ 255, 0, 0 ]
+      }
+    ],
+    "1373363258249183274": [
+      {
+        "text": "sus",
+        "color": [ 0, 0, 255 ]
+      }
+    ]
+  },
+  "BlacklistedUsers": {},
+  "Announcement": {
+    "text": "hello there :)",
+    "expiretime": 1719510977.4331613,
+    "targets": "2529295875"
+  },
+  "KillVape": false
+}
