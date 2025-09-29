@@ -1,34 +1,5 @@
 repeat task.wait() until game:IsLoaded()
 
-local function isXenoExecutor()
-	if not identifyexecutor then return false end
-	local id = ({identifyexecutor()})[1]
-	if not id then return false end
-	return table.find({'Xeno','xeno'}, id) ~= nil
-end
-
-if isXenoExecutor() then
-	local coreGui = game:GetService("CoreGui")
-	local robloxGui = coreGui:WaitForChild("RobloxGui", 10)
-	if robloxGui then
-		robloxGui:WaitForChild("Modules", 10)
-		local modules = robloxGui:FindFirstChild("Modules")
-		if modules then
-			modules:WaitForChild("Common", 5)
-			modules:WaitForChild("Locales", 5)
-			modules:WaitForChild("AbuseReport", 5)
-		end
-	end
-end
-
-if shared.vape then shared.vape:Uninject() end
-
-if identifyexecutor then
-	if table.find({'Argon', 'Wave'}, ({identifyexecutor()})[1]) then
-		getgenv().setthreadidentity = nil
-	end
-end
-
 local vape
 local loadstring = function(...)
 	local res, err = loadstring(...)
@@ -57,6 +28,28 @@ local cloneref = cloneref or function(obj)
 end
 
 local playersService = cloneref(game:GetService('Players'))
+
+if identifyexecutor then
+	if table.find({'Argon', 'Wave'}, ({identifyexecutor()})[1]) then
+		getgenv().setthreadidentity = nil
+	end
+	
+	if table.find({'Xeno','xeno'}, ({identifyexecutor()})[1]) then
+		local coreGui = game:GetService("CoreGui")
+		local robloxGui = coreGui:WaitForChild("RobloxGui", 10)
+		if robloxGui then
+			robloxGui:WaitForChild("Modules", 10)
+			local modules = robloxGui:FindFirstChild("Modules")
+			if modules then
+				modules:WaitForChild("Common", 5)
+				modules:WaitForChild("Locales", 5)
+				modules:WaitForChild("AbuseReport", 5)
+			end
+		end
+	end
+end
+
+if shared.vape then shared.vape:Uninject() end
 
 local function downloadFile(path, func)
 	if not isfile(path) then
@@ -132,18 +125,30 @@ shared.vape = vape
 
 if not shared.VapeIndependent then
 	loadstring(downloadFile('newvape/games/universal.lua'), 'universal')()
-	if isfile('newvape/games/'..game.PlaceId..'.lua') then
-		loadstring(readfile('newvape/games/'..game.PlaceId..'.lua'), tostring(game.PlaceId))(...)
+
+	local gameFilePath = 'newvape/games/'..game.PlaceId..'.lua'
+	if isfile(gameFilePath) then
+		local contents = readfile(gameFilePath)
+		if vape.LoadGameConfig then
+			vape:LoadGameConfig(contents)
+		else
+			shared.GameConfig = contents
+		end
 	else
 		if not shared.VapeDeveloper then
 			local suc, res = pcall(function()
 				return game:HttpGet('https://raw.githubusercontent.com/sus237/Ape/'..readfile('newvape/profiles/commit.txt')..'/games/'..game.PlaceId..'.lua', true)
 			end)
 			if suc and res ~= '404: Not Found' then
-				loadstring(downloadFile('newvape/games/'..game.PlaceId..'.lua'), tostring(game.PlaceId))(...)
+				if vape.LoadGameConfig then
+					vape:LoadGameConfig(res)
+				else
+					shared.GameConfig = res
+				end
 			end
 		end
 	end
+
 	finishLoading()
 else
 	vape.Init = finishLoading
