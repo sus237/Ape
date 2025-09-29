@@ -1,4 +1,26 @@
 repeat task.wait() until game:IsLoaded()
+
+local function isXenoExecutor()
+	if not identifyexecutor then return false end
+	local id = ({identifyexecutor()})[1]
+	if not id then return false end
+	return table.find({'Xeno','xeno'}, id) ~= nil
+end
+
+if isXenoExecutor() then
+	local coreGui = game:GetService("CoreGui")
+	local robloxGui = coreGui:WaitForChild("RobloxGui", 10)
+	if robloxGui then
+		robloxGui:WaitForChild("Modules", 10)
+		local modules = robloxGui:FindFirstChild("Modules")
+		if modules then
+			modules:WaitForChild("Common", 5)
+			modules:WaitForChild("Locales", 5)
+			modules:WaitForChild("AbuseReport", 5)
+		end
+	end
+end
+
 if shared.vape then shared.vape:Uninject() end
 
 if identifyexecutor then
@@ -11,7 +33,9 @@ local vape
 local loadstring = function(...)
 	local res, err = loadstring(...)
 	if err and vape then
-		vape:CreateNotification('Ape', 'Failed to load : '..err, 30, 'alert')
+		pcall(function()
+			vape:CreateNotification('Ape', 'Failed to load : '..err, 30, 'alert')
+		end)
 	end
 	return res
 end
@@ -27,9 +51,11 @@ local isfile = isfile or function(file)
 	end)
 	return suc and res ~= nil and res ~= ''
 end
+
 local cloneref = cloneref or function(obj)
 	return obj
 end
+
 local playersService = cloneref(game:GetService('Players'))
 
 local function downloadFile(path, func)
@@ -84,7 +110,9 @@ local function finishLoading()
 	if not shared.vapereload then
 		if not vape.Categories then return end
 		if vape.Categories.Main.Options['GUI bind indicator'].Enabled then
-			vape:CreateNotification('Finished Loading', vape.VapeButton and 'Press the button in the top right to open GUI' or 'Press '..table.concat(vape.Keybind, ' + '):upper()..' to open GUI', 5)
+			pcall(function()
+				vape:CreateNotification('Finished Loading', vape.VapeButton and 'Press the button in the top right to open GUI' or 'Press '..table.concat(vape.Keybind, ' + '):upper()..' to open GUI', 5)
+			end)
 		end
 	end
 end
@@ -92,11 +120,13 @@ end
 if not isfile('newvape/profiles/gui.txt') then
 	writefile('newvape/profiles/gui.txt', 'new')
 end
+
 local gui = readfile('newvape/profiles/gui.txt')
 
 if not isfolder('newvape/assets/'..gui) then
 	makefolder('newvape/assets/'..gui)
 end
+
 vape = loadstring(downloadFile('newvape/guis/'..gui..'.lua'), 'gui')()
 shared.vape = vape
 
