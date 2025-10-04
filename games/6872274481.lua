@@ -1,4 +1,5 @@
 local plrs = game:GetService("Players")
+local cam = workspace.CurrentCamera
 local uis = game:GetService("UserInputService")
 local lplr = plrs.LocalPlayer
 local character = lplr.Character
