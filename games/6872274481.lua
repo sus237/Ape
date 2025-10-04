@@ -2399,7 +2399,7 @@ run(function()
 		Name = 'Swing range',
 		Min = 1,
 		Max = 23,
-		Default = ,
+		Default = 23,
 		Suffix = function(val)
 			return val == 1 and 'stud' or 'studs'
 		end
@@ -2443,9 +2443,15 @@ run(function()
 		Name = 'Target Mode',
 		List = methods
 	})
-	Mouse = Killaura:CreateToggle({Name = 'Require mouse down'})
-	Swing = Killaura:CreateToggle({Name = 'No Swing'})
-	GUI = Killaura:CreateToggle({Name = 'GUI check'})
+	Mouse = Killaura:CreateToggle({
+	Name = 'Require mouse down',
+	})
+	Swing = Killaura:CreateToggle({
+	Name = 'No Swing',
+	})
+	GUI = Killaura:CreateToggle({
+	Name = 'GUI check',
+	})
 	Killaura:CreateToggle({
 		Name = 'Show target',
 		Function = function(callback)
