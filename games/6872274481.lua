@@ -8986,7 +8986,7 @@ run(function()
 		Name = 'Speed',
 		Min = 0,
 		Max = 9,
-		Default = 5
+		Default = 6
 	})
 end)																																																																
 
