@@ -3291,11 +3291,11 @@ run(function()
 	
 	Speed = vape.Categories.Blatant:CreateModule({
 		Name = 'Speed',
-		Function = function(call)
-			frictionTable.Speed = call or nil
+		Function = function(callback)
+			frictionTable.Speed = callback or nil
 			updateVelocity()
 			pcall(function()
-				debug.setconstant(bedwars.WindWalkerController.updateSpeed, 7, call and 'constantSpeedMultiplier' or 'moveSpeedMultiplier')
+				debug.setconstant(bedwars.WindWalkerController.updateSpeed, 7, callback and 'constantSpeedMultiplier' or 'moveSpeedMultiplier')
 			end)
 	
 			if callback then
