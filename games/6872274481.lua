@@ -8548,7 +8548,7 @@ run(function()
     local Antihit = {Enabled = false}
     local Range, TimeUp, Down = 16, 0.5, 0.14
 
-    Antihit = vape.Categories.Ape:CreateModule({
+    Antihit = vape.Categories.Blatant:CreateModule({
         Name = "Antihit",
         Function = function(call)
             if call then
@@ -8619,7 +8619,7 @@ end)
 run(function()
 	local InfiniteJump = {Enabled = false}
 
-	InfiniteJump = vape.Categories.Ape:CreateModule({
+	InfiniteJump = vape.Categories.Blatant:CreateModule({
 		Name = "Infinite Jump",
 		Function = function(call)
 			if call then
@@ -8640,7 +8640,7 @@ end)
 run(function()
 	local ItemlessLongjump = {Enabled = false}
 
-	ItemlessLongjump = vape.Categories.Ape:CreateModule({
+	ItemlessLongjump = vape.Categories.Blatant:CreateModule({
 		Name = "ItemlessLongjump",
 		Function = function(call)
 			ItemlessLongjump.Enabled = call
@@ -8662,7 +8662,7 @@ end)
 run(function()
 	local Shaders = {Enabled = false}
 
-    local Shaders = vape.Categories.Ape:CreateModule({
+    local Shaders = vape.Categories.Render:CreateModule({
         Name = "Shaders",
         Function = function(call)
             if call then
@@ -8749,7 +8749,7 @@ run(function()
     local prevCFrame = cam.CFrame
     local conn
 		
-    MotionBlur = vape.Categories.Ape:CreateModule({
+    MotionBlur = vape.Categories.Render:CreateModule({
         Name = "MotionBlur",
         Function = function(call)
             MotionBlur.Enabled = call
@@ -8840,7 +8840,7 @@ run(function()
 		return nil, 0
 	end
 
-	Clutch = vape.Categories.Ape:CreateModule({
+	Clutch = vape.Categories.World:CreateModule({
 		Name = 'Clutch',
 		Function = function(call)
 			if call then --holy shit is that maxlasertech style?????
