@@ -5593,8 +5593,8 @@ run(function()
 
 	ChestSteal = vape.Categories.World:CreateModule({
 		Name = "ChestSteal",
-		Function = function(call)
-			if call then
+		Function = function(callback)
+			if callback then
 				chests = collection("chest", ChestSteal)
 				repeat task.wait() until store.queueType ~= "bedwars_test"
 				if (not Skywars.Enabled) or store.queueType:find("skywars") then
@@ -5612,7 +5612,7 @@ run(function()
 								end
 							end
 						end
-						task.wait(0.4)
+						task.wait(0.32)
 					end
 				end
 			end
