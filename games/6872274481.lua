@@ -8917,7 +8917,7 @@ run(function()
 		return nil, 0
 	end
 
-	Clutch = vape.Categories.Utility:CreateModule({
+	Clutch = vape.Categories.Ape:CreateModule({
 		Name = 'Clutch',
 		Function = function(call)
 			if call then --holy shit is that maxlasertech style?????
