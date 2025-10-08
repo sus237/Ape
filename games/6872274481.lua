@@ -8724,7 +8724,7 @@ end)
 run(function()
     local KrystalXploit = {Enabled = false}
 
-    KrystalXploit = vape.Categories.Ape:CreateModule({
+    KrystalXploit = vape.Categories.Utility:CreateModule({
         Name = "KrystalExploit",
         Function = function(call)
             if call then
