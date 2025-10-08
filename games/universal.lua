@@ -260,7 +260,7 @@ vape.Libraries.auraanims = {
 		{CFrame = CFrame.Angles(math.rad(90), 0, math.rad(15)), Time = 0.12},
 		{CFrame = CFrame.Angles(0, 0, math.rad(15)), Time = 0.12}
 	},
-	['Sigma'] = {
+	['Freeze'] = {
     {CFrame = CFrame.new(0.3, -1, -1) * CFrame.Angles(-math.rad(60), math.rad(55), -math.rad(90)), Timer = 0.2},
     {CFrame = CFrame.new(0.3, -1, -0.1) * CFrame.Angles(-math.rad(90), math.rad(110), -math.rad(90)), Timer = 0.2},
     },
