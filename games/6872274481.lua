@@ -1277,13 +1277,13 @@ run(function()
 	AimSpeed = AimAssist:CreateSlider({
 		Name = 'Aim Speed',
 		Min = 1,
-		Max = 20,
+		Max = 150,
 		Default = 6
 	})
 	Distance = AimAssist:CreateSlider({
 		Name = 'Distance',
 		Min = 1,
-		Max = 30,
+		Max = 50,
 		Default = 30,
 		Suffx = function(val)
 			return val == 1 and 'stud' or 'studs'
