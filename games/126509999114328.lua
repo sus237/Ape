@@ -21,3 +21,4 @@ local sessioninfo = vape.Libraries.sessioninfo
 local function notif(...)
 	return vape:CreateNotification(...)
 end
+
