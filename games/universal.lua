@@ -241,13 +241,18 @@ vape.Libraries.whitelist = whitelist
 vape.Libraries.prediction = prediction
 vape.Libraries.hash = hash
 vape.Libraries.auraanims = {
-	Normal = {
+	['Normal'] = {
 		{CFrame = CFrame.new(-0.17, -0.14, -0.12) * CFrame.Angles(math.rad(-53), math.rad(50), math.rad(-64)), Time = 0.1},
 		{CFrame = CFrame.new(-0.55, -0.59, -0.1) * CFrame.Angles(math.rad(-161), math.rad(54), math.rad(-6)), Time = 0.08},
 		{CFrame = CFrame.new(-0.62, -0.68, -0.07) * CFrame.Angles(math.rad(-167), math.rad(47), math.rad(-1)), Time = 0.03},
 		{CFrame = CFrame.new(-0.56, -0.86, 0.23) * CFrame.Angles(math.rad(-167), math.rad(49), math.rad(-1)), Time = 0.03}
 	},
-	Random = {},
+	['Springs67'] = {
+	{CFrame = CFrame.new(-0.55, -0.59, -0.1) * CFrame.Angles(math.rad(-170), math.rad(54), math.rad(-6)), Time = 0.08},
+	{CFrame = CFrame.new(-0.62, -0.68, -0.07) * CFrame.Angles(math.rad(-175), math.rad(47), math.rad(-1)), Time = 0.03},
+	{CFrame = CFrame.new(-0.56, -0.86, 0.23) * CFrame.Angles(math.rad(-175), math.rad(49), math.rad(-1)), Time = 0.03}
+	},
+	['Random'] = {},
 	['Horizontal Spin'] = {
 		{CFrame = CFrame.Angles(math.rad(-10), math.rad(-90), math.rad(-80)), Time = 0.12},
 		{CFrame = CFrame.Angles(math.rad(-10), math.rad(180), math.rad(-80)), Time = 0.12},
@@ -264,7 +269,7 @@ vape.Libraries.auraanims = {
     {CFrame = CFrame.new(0.3, -1, -1) * CFrame.Angles(-math.rad(60), math.rad(55), -math.rad(90)), Timer = 0.2},
     {CFrame = CFrame.new(0.3, -1, -0.1) * CFrame.Angles(-math.rad(90), math.rad(110), -math.rad(90)), Timer = 0.2},
     },
-	Exhibition = {
+	['Exhibition'] = {
 		{CFrame = CFrame.new(0.69, -0.7, 0.6) * CFrame.Angles(math.rad(-30), math.rad(50), math.rad(-90)), Time = 0.1},
 		{CFrame = CFrame.new(0.7, -0.71, 0.59) * CFrame.Angles(math.rad(-84), math.rad(50), math.rad(-38)), Time = 0.2}
 	},
