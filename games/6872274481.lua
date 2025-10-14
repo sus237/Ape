@@ -3132,8 +3132,8 @@ run(function()
 	
 	ProjectileAura = vape.Categories.Blatant:CreateModule({
 		Name = 'ProjectileAura',
-		Function = function(call)
-			if call then
+		Function = function(callback)
+			if callback then
 				repeat
 					if (workspace:GetServerTimeNow() - bedwars.SwordController.lastAttack) > 0.5 then
 						local ent = entitylib.EntityPosition({
@@ -3155,8 +3155,11 @@ run(function()
 									local calc = prediction.SolveTrajectory(pos, projSpeed, gravity, ent.RootPart.Position, ent.RootPart.Velocity, workspace.Gravity, ent.HipHeight, ent.Jumping and 42.6 or nil, rayCheck)
 									if calc then
 										targetinfo.Targets[ent] = tick() + 1
-										local switched = switchItem(item.tool)
-	
+										local switched
+										for i,v in game:GetService("ReplicatedStorage"):GetDescendants() do
+											if v.Name == "SetInvItem" and v:IsA("RemoteFunction") then switched = v break end
+										end
+										switched:InvokeServer({hand = item.tool})
 										task.spawn(function()
 											local dir, id = CFrame.lookAt(pos, calc).LookVector, httpService:GenerateGUID(true)
 											local shootPosition = (CFrame.new(pos, calc) * CFrame.new(Vector3.new(-bedwars.BowConstantsTable.RelX, -bedwars.BowConstantsTable.RelY, -bedwars.BowConstantsTable.RelZ))).Position
