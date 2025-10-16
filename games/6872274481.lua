@@ -360,7 +360,7 @@ local function switchItem(tool, delayTime)
 	local check = lplr.Character and lplr.Character:FindFirstChild('HandInvItem') or nil
 	if check and check.Value ~= tool and tool.Parent ~= nil then
 		task.spawn(function()
-			bedwars.Client:Get(remotes.EquipItem):CallServerAsync({hand = tool})
+			bedwars.Client:Get(remotes.SetInvItem):CallServerAsync({hand = tool})
 		end)
 		check.Value = tool
 		if delayTime > 0 then
@@ -2249,11 +2249,7 @@ run(function()
 						local validTargets = {}
 						
 						if #plrs > 0 then
-							local path
-                            for i,v in game:GetDescendants() do
-                                if v.Name == "SetInvItem" and v:IsA("RemoteFunction") then path = v break end
-                            end
-							path:InvokeServer({hand = sword.tool})
+							switchItem(sword.tool, 0)
 							local selfpos = entitylib.character.RootPart.Position
 							local localfacing = entitylib.character.RootPart.CFrame.LookVector * Vector3.new(1, 0, 1)
 
