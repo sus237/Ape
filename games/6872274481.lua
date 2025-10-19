@@ -2684,9 +2684,13 @@ run(function()
 					local breaktype = bedwars.ItemMeta[block.Name].block.breakType
 					local tool = store.tools[breaktype]
 					if tool then
-						switchItem(tool.tool, 0)
+						
+				local cannonpath
+					for i,v in game:GetService("ReplicatedStorage"):GetDescendants() do
+						if v.Name == "SetInvItem" and v:IsA("RemoteFunction") then cannonpath = v break end
 					end
-
+				cannonpath:InvokeServer({hand = tool.tool})
+					end
 					bedwars.Client:Get(remotes.CannonAim):SendToServer({
 						cannonBlockPos = blockpos,
 						lookVector = dir
@@ -2767,7 +2771,11 @@ run(function()
 
 			if LongJump.Enabled then
 				bedwars.SwordController.lastAttack = workspace:GetServerTimeNow()
-				switchItem(item.tool, 0.1)
+					local longjumppath
+		for i,v in game:GetService("ReplicatedStorage"):GetDescendants() do
+			if v.Name == "SetInvItem" and v:IsA("RemoteFunction") then longjumppath = v break end
+		end
+	longjumppath:InvokeServer({hand = item.tool})
 				replicatedStorage['events-@easy-games/game-core:shared/game-core-networking@getEvents.Events'].useAbility:FireServer('dash', {
 					direction = dir,
 					origin = pos,
@@ -3177,7 +3185,11 @@ run(function()
 									local calc = prediction.SolveTrajectory(pos, projSpeed, gravity, ent.RootPart.Position, ent.RootPart.Velocity, workspace.Gravity, ent.HipHeight, ent.Jumping and 42.6 or nil, rayCheck)
 									if calc then
 										targetinfo.Targets[ent] = tick() + 1
-										switchItem(item.tool, 0)
+										local switched
+										for i,v in game:GetService("ReplicatedStorage"):GetDescendants() do
+											if v.Name == "SetInvItem" and v:IsA("RemoteFunction") then switched = v break end
+										end
+										switched:InvokeServer({hand = item.tool})
 										task.spawn(function()
 											local dir, id = CFrame.lookAt(pos, calc).LookVector, httpService:GenerateGUID(true)
 											local shootPosition = (CFrame.new(pos, calc) * CFrame.new(Vector3.new(-bedwars.BowConstantsTable.RelX, -bedwars.BowConstantsTable.RelY, -bedwars.BowConstantsTable.RelZ))).Position
