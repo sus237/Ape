@@ -8957,33 +8957,29 @@ run(function()
 	})
 end)																																																																
 
-run(function() -- sorry qp
-    local InfernalKill = {Enabled = false}
-    InfernalKill = vape.Categories.Utility:CreateModule({
-        ["Name"] = "ember insta kill",
-        ["Function"] = function(callback)
+run(function()
+    local Exploit
+
+    Exploit = vape.Categories.Blatant:CreateModule({
+        Name = "Tp Exploit",
+        Function = function(callback)
             if callback then
                 repeat
-                    wait()
-                    local tmp = getItem("infernal_saber")
-                    if tmp then
-                        local lplr = game:GetService("Players").LocalPlayer
-                        for i, plr in pairs(game:GetService("Players"):GetPlayers()) do
-                            if plr ~= lplr and plr.Team ~= lplr.Team and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
-                                local root = plr.Character.HumanoidRootPart
-                                if (root.Position - lplr.Character.HumanoidRootPart.Position).Magnitude <= 14 then
-                                    bedwars.Client:Get('HellBladeRelease'):SendToServer({
-                                        weapon = tmp.tool;
-                                        player = plr;
-                                        chargeTime = 0.9;
-                                    })
-                                end
-                            end
+                    for i, v in pairs(game.Players:GetPlayers()) do
+                        if v ~= game.Players.LocalPlayer 
+                        and v.Team ~= game.Players.LocalPlayer.Team 
+                        and v.Character 
+                        and v.Character.PrimaryPart then
+                            v.Character:SetPrimaryPartCFrame(
+                                game.Players.LocalPlayer.Character.PrimaryPart.CFrame * CFrame.new(0, -12, 0)
+                            )
                         end
                     end
-                until not InfernalKill["Enabled"]
+                    task.wait()
+                until not callback
             end
-        end,
-        ["Description"] = "insta kill"
+        end
     })
 end)
+
+
