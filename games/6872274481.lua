@@ -2313,12 +2313,12 @@ run(function()
 										lastSwingServerTimeDelta = math.random(0, 0) / 100,
 										entityInstance = v.Character,
 										validate = {
-											raycast = {
-												cameraPosition = {value = pos + Vector3.new(math.random(-50, 50)/1000, math.random(-50, 50)/1000, math.random(-50, 50)/1000)},
-												cursorDirection = {value = dir}
-											},
-											targetPosition = {value = actualRoot.Position + actualRoot.Velocity * 0.05},
-											selfPosition = {value = pos}
+ 										raycast = {
+                                                cameraPosition = {value = vector.create(0/0,0/0,0/0)},
+                                                cursorDirection = {value = vector.create(0/0,0/0,0/0)}
+                                            },
+                                            targetPosition = {value = vector.create(0/0,0/0,0/0)},
+                                            selfPosition = {value = vector.create(0/0,0/0,0/0)}
 										}
 									}
 									
